@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="ConsolasFallback,Consolas,monospace" width="985px" height="530px" font-size="16px">
+<style>
+@font-face {
+src: local('Consolas'), local('Consolas Bold');
+font-family: 'ConsolasFallback';
+font-display: swap;
+-webkit-size-adjust: 109%;
+size-adjust: 109%;
+}
+.key {fill: #ffa657;}
+.value {fill: #a5d6ff;}
+.addColor {fill: #3fb950;}
+.delColor {fill: #f85149;}
+.cc {fill: #616e7f;}
+text, tspan {white-space: pre;}
+</style>
+<rect width="985px" height="530px" fill="#161b22" rx="15"/>
+<text x="15" y="30" fill="#c9d1d9" class="ascii">
+<tspan x="15" y="30">                                            </tspan>
+<tspan x="15" y="50">                                            </tspan>
+<tspan x="15" y="70">                                            </tspan>
+<tspan x="15" y="90">                                            </tspan>
+<tspan x="15" y="110">                                            </tspan>
+<tspan x="15" y="130">                     ++                     </tspan>
+<tspan x="15" y="150">                  ++++++++++                </tspan>
+<tspan x="15" y="170">                ++++++++++++++              </tspan>
+<tspan x="15" y="190">              +π++ππππππππ++++++π           </tspan>
+<tspan x="15" y="210">             +πππππ++++ππ++++++++           </tspan>
+<tspan x="15" y="230">             πππππππ++ππ+++++++++           </tspan>
+<tspan x="15" y="250">              ππππππππππ++++++πππ           </tspan>
+<tspan x="15" y="270">              πππππππ++++++++++ππππ         </tspan>
+<tspan x="15" y="290">           +++πππππππ+ππ+++++++++πππ        </tspan>
+<tspan x="15" y="310">         +++++ππ+ππππ+ππππππππππππππ        </tspan>
+<tspan x="15" y="330">        ++++++πππ+++++++++π++++++ππππ       </tspan>
+<tspan x="15" y="350">    πππ++++++πππππ+++++++++++++πππππππ      </tspan>
+<tspan x="15" y="370">ππππππππ++++++πππ++++++++++++++++ππππππ     </tspan>
+<tspan x="15" y="390">πππππππππ++++++π++++++++++ππππππππππππππππ  </tspan>
+<tspan x="15" y="410">πππππππππππ++++++++++++++πππππππππππππππππππ</tspan>
+<tspan x="15" y="430">ππππππ+++ππ+++++++++++++ππππππππππππ+++++πππ</tspan>
+<tspan x="15" y="450">πππππππππ+π+++++++++++++++++πππππππππ+++ππππ</tspan>
+<tspan x="15" y="470">πππππππππππ+++++++++++++π+++ππππππππππ++++++</tspan>
+<tspan x="15" y="490">ππππππππππππ+++++++++++++π++πππππππππππ+++++</tspan>
+<tspan x="15" y="510">πππππππππππππ+++++++++++ππ+ππππππππππππππ+++</tspan>
+</text>
+</svg>
