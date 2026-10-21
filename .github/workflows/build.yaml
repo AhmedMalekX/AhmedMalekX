@@ -8,19 +8,25 @@ on:
       - light_mode.svg
       - cache/**
   schedule:
-    - cron: "0 4 * * *"
+    # Off the top of the hour: :00 is GitHub's busiest slot and runs get delayed for hours.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: readme-build
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
-          fetch-depth: 1
+          fetch-depth: 0  # full history so the pre-push rebase always finds a merge base
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - name: Install dependencies
@@ -32,8 +38,19 @@ jobs:
         run: python update_stats.py
       - name: Commit
         run: |-
-          git add dark_mode.svg light_mode.svg cache/
           git config --global user.email "github-actions-bot@ahmedmalekx.github.io"
           git config --global user.name "AhmedMalekX/GitHub-Actions-Bot"
-          git commit -m "Update stats" -a || echo "No changes to commit"
-          git push
+          git add dark_mode.svg light_mode.svg cache/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "Update stats"
+          # Rebase onto anything pushed while the job ran, retrying if main moves again.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "Push attempt $attempt failed, retrying..."
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 5))
+          done
+          exit 1
